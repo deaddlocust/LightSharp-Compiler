@@ -18,7 +18,7 @@ LightSharp is an open-source lightweight [.NET](https://dotnet.microsoft.com/dow
 - Dark mode
 
 ## Comitting
-If you want to contribute, I provided the source code right there. You could do anything from adding a whole new function to a small little plugin.
+If you want to contribute, I provided the source code right there. You could do anything from adding a whole new function to a UI update.
 Just create a pull request, I'll look through it, and if it's alright I'll commit.
 
 ## Credits
