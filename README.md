@@ -1,6 +1,6 @@
 # LightSharp IDE
 
-LightSharp is an open-source lightweight .NET IDE for C# by deaddlocust. LightSharp is optimized to be easy to use and easy to download.
+LightSharp is an open-source lightweight [.NET](https://dotnet.microsoft.com/download/dotnet-framework) IDE for [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) by deaddlocust. LightSharp is optimized to be easy to use and easy to download.
 
 ## Features
 
@@ -13,7 +13,7 @@ LightSharp is an open-source lightweight .NET IDE for C# by deaddlocust. LightSh
 - Add up to as many references/dynamic link libraries as you want.
 
 ## Coming soon
-- Visual Basic support
+- [Visual Basic](https://en.wikipedia.org/wiki/Visual_Basic) support
 
 - Dark mode
 
