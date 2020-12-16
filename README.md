@@ -12,6 +12,9 @@ LightSharp is an open-source lightweight [.NET](https://dotnet.microsoft.com/dow
 
 - Add up to as many references/dynamic link libraries as you want.
 
+## UI Image
+![alt text](https://media.discordapp.net/attachments/773068882520309794/788769397153202256/Screenshot_125.png)
+
 ## Coming soon
 - [Visual Basic](https://en.wikipedia.org/wiki/Visual_Basic) support
 
