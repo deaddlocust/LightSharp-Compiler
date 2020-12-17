@@ -42,6 +42,7 @@ namespace LightSharp
 
             if (res.Errors.Count > 0)
             {
+                richTextBox1.Clear();
                 MessageBox.Show("Build failed.", "Error");
                 foreach (CompilerError ce in res.Errors)
                 {
@@ -86,6 +87,7 @@ namespace LightSharp
                 MessageBox.Show("Build failed.", "Error");
                 foreach (CompilerError ce in res.Errors)
                 {
+                    richTextBox1.Clear();
                     MessageBox.Show(ce.ToString(), "Error");
                     richTextBox1.Text = richTextBox1.Text +
                         "Line number " + ce.Line +
@@ -104,6 +106,40 @@ namespace LightSharp
                 }
                 Process.Start(filename + ".exe");
                 MessageBox.Show("Code compiled!", "Success");
+            }
+        }
+
+        public void ErrorCheck(string file)
+        {
+            string filename = Path.GetFileNameWithoutExtension(file);
+            string exename = filename + ".exe";
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("CSharp");
+            CompilerParameters compars = new CompilerParameters();
+
+            compars.GenerateExecutable = false;
+            compars.OutputAssembly = exename;
+            compars.GenerateInMemory = true;
+            compars.TreatWarningsAsErrors = false;
+            string[] clist = listBox1.Items.OfType<string>().ToArray();
+            compars.ReferencedAssemblies.AddRange(clist);
+
+            CompilerResults res = provider.CompileAssemblyFromFile(compars, file);
+
+            if (res.Errors.Count > 0)
+            {
+                richTextBox1.Clear();
+                foreach (CompilerError ce in res.Errors)
+                {
+                    richTextBox1.Text = richTextBox1.Text +
+                        "Line number " + ce.Line +
+                        ", Error Number: " + ce.ErrorNumber +
+                        ", '" + ce.ErrorText + ";" +
+                        Environment.NewLine + Environment.NewLine;
+                }
+            }
+            else
+            {
+                
             }
         }
 
@@ -190,6 +226,7 @@ namespace LightSharp
             }
             else
             {
+                System.IO.File.WriteAllText(textBox1.Text, fastColoredTextBox1.Text);
                 Build(textBox1.Text);
             }
         }
@@ -202,6 +239,7 @@ namespace LightSharp
             }
             else
             {
+                System.IO.File.WriteAllText(textBox1.Text, fastColoredTextBox1.Text);
                 BuildRun(textBox1.Text);
             }
         }
@@ -271,6 +309,24 @@ namespace LightSharp
                 listBox1.Items.Add(openFileDialog1.FileName);
             }
 
+        }
+
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("deaddlocust (c) 2020", "Credits");
+        }
+
+        private void checkErrorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("You need to save the file or open a file first!", "Error");
+            }
+            else
+            {
+                System.IO.File.WriteAllText(textBox1.Text, fastColoredTextBox1.Text);
+                ErrorCheck(textBox1.Text);
+            }
         }
     }
 }
