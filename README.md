@@ -12,6 +12,8 @@ LightSharp is an open-source lightweight [.NET](https://dotnet.microsoft.com/dow
 
 - Logs compiation errors.
 
+- Easy shortcut keys
+
 - Instant error checking anytime you want while coding.
 
 - Add up to as many references/dynamic link libraries as you want.
